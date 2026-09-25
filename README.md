@@ -27,6 +27,3 @@ flutter build apk --release
 `build/app/outputs/flutter-apk/app-release.apk`
 
 > لم يتم وضع مواقيت صلاة فعلية افتراضية؛ الصفحة تعرض حقولًا مؤقتة إلى أن يتم ربطها بخدمة موثوقة.
-
-
-ملاحظة: GitHub Actions يحذف اختبار Flutter الافتراضي الذي ينشئه flutter create لأنه يستخدم MyApp التجريبي.
