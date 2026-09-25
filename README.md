@@ -1,48 +1,29 @@
 # أذكاري | Athkari
 
-نسخة معاد بناؤها من مشروع Flutter **أذكاري** مع Android embedding v2 وGitHub Actions لبناء APK.
+نسخة Flutter عربية مبسطة من تطبيق أذكاري، مع Android حديث وGitHub Actions لبناء APK.
 
 ## ما تم إصلاحه
+- إصلاح أخطاء Dart في الصفحة الرئيسية.
+- إزالة اختبار Flutter التجريبي الذي كان يبحث عن `MyApp` غير موجود.
+- Android embedding v2.
+- صلاحيات الموقع للقبلة.
+- Workflow يعيد إنشاء Android نظيف ثم يحلل المشروع ويبني APK.
 
-- إعادة كتابة مشروع Android باستخدام Flutter الحديث بدل Android v1 embedding.
-- `MainActivity` يستخدم `FlutterActivity` من embedding v2.
-- إضافة صلاحيات الموقع اللازمة لاتجاه القبلة.
-- Workflow يبني APK Release ويرفعه كـ Artifact.
-- الحفاظ على وظائف التطبيق الأساسية: الأذكار، التصنيفات، التسبيح، المفضلة، البحث، الوضع الليلي واتجاه القبلة.
+## البناء عبر GitHub Actions
+بعد رفع المشروع إلى الفرع `main`:
+1. افتح **Actions**.
+2. اختر **Build Android APK**.
+3. انتظر حتى تظهر علامة صح خضراء.
+4. افتح التشغيل الناجح ثم قسم **Artifacts** وحمّل `athkari-release-apk`.
 
-## التشغيل محليًا
-
+## البناء المحلي
 ```bash
 flutter pub get
 flutter run
-```
-
-إذا كان مجلد Android على جهازك قديمًا، نفّذ:
-
-```bash
-bash tool/rebuild_android.sh
-```
-
-ثم:
-
-```bash
 flutter build apk --release
 ```
 
-الملف الناتج:
-
+ملف APK سيكون في:
 `build/app/outputs/flutter-apk/app-release.apk`
 
-## GitHub Actions
-
-كل Push إلى `main` يشغل `.github/workflows/main.yml`.
-
-الـ workflow يعيد إنشاء مضيف Android نظيف بواسطة Flutter، ثم يضيف صلاحيات الموقع، ثم يبني APK Release.
-
-بعد نجاح التشغيل:
-
-**Actions → Build Android APK → Artifacts → athkari-release-apk**
-
-## ملاحظة
-
-مواقيت الصلاة في هذه النسخة واجهة جاهزة للربط بمصدر حساب موثوق؛ لا يتم وضع أوقات مختلقة.
+> لم يتم وضع مواقيت صلاة فعلية افتراضية؛ الصفحة تعرض حقولًا مؤقتة إلى أن يتم ربطها بخدمة موثوقة.
